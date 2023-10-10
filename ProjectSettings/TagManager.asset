@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - EnemyBullet
+  - PlayerBullet
+  - PlaneSmoke
+  - Explosion1
+  - Explosion2
+  - Explosion3
+  - BGMusic
+  - SpeedUp
+  - BulletHit
+  - EnemyDMG
+  - SpeedDown
+  - RPMDestroyed
+  - ScoreText
+  - GameOver
+  - ArmorBar
+  - FuelBar
+  - AircraftText
+  - ArtilleryText
+  - SupplyFuel
+  - SupplyAircraft
+  - SupplyArtillery
+  - ArmorUp
+  - FuelUp
+  - AircraftUp
+  - ArtilleryUp
+  - SupplyArmor
+  - EnemiesDownText
+  - RankUp
+  - AwardSound
+  - AlertText
+  - PauseText
+  - Gogogo
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - PlayerBullet
+  - Enemy
+  - EnemyBullet
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 77994783
+    locked: 0
+  - name: Midground
+    uniqueID: 3546574155
+    locked: 0
+  - name: Foreground
+    uniqueID: 2354434483
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
