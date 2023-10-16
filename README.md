@@ -1,2 +1,2 @@
 # Mike-Mike_Dogfight
-2D platform Shoot 'Em Up game, for Desktop, developed with C# and Unity.
+2D Shoot 'Em Up game, for Desktop, developed with C# and Unity.
