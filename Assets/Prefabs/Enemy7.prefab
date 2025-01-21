@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -748393141
+  m_SortingLayerID: 1462756165
   m_SortingLayer: -2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 20a1f6d89976cae4daf580e6b6626b6a, type: 3}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 789113066675883382}
   - component: {fileID: 5001468225137008125}
   - component: {fileID: 580806093372894505}
-  - component: {fileID: 4440381979149382863}
+  - component: {fileID: -1197948943277988545}
   m_Layer: 8
   m_Name: Enemy7
   m_TagString: Enemy
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 454641930916508544}
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -748393141
+  m_SortingLayerID: 1462756165
   m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 20a1f6d89976cae4daf580e6b6626b6a, type: 3}
@@ -260,7 +260,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4440381979149382863
+--- !u!114 &-1197948943277988545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,13 +269,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 9142633861807121728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbcf7aa906242747a680ae76f2e1285, type: 3}
+  m_Script: {fileID: 11500000, guid: 368db851d5654e748ad868eafcf1bd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2.1
   enemyBulletPrefabs:
   - {fileID: 315994540434688092, guid: c572ee8442a29854992f266c7c1e1fc9, type: 3}
   - {fileID: 315994540434688092, guid: 95315ab769c5c994cb34bf2592908c51, type: 3}
   - {fileID: 4675604574167199315, guid: 17dfc54271828c0468e54345db098c8c, type: 3}
   - {fileID: 6126840252514261994, guid: 64295a762e414d742aaa150ad8615116, type: 3}
   - {fileID: 710706829375717418, guid: 10863fce0b7a77042bd104bd93ff86ae, type: 3}
+  bulletSpeed: 6
+  reloadTimer: 1.1
+  receiveDmgMultiplier: 3
   explosionPrefab: {fileID: 2034857485800139334, guid: 5a22a7b842e4e5142b1f98760a1dea4b, type: 3}

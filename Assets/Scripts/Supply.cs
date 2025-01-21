@@ -4,7 +4,7 @@ using UnityEngine;
 public class Supply : MonoBehaviour
 {
     private Rigidbody2D supply;
-    private float speed = 1f;
+    private readonly float speed = 1f;
 
     void Awake()
     {

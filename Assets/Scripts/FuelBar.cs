@@ -8,24 +8,24 @@ public class FuelBar : MonoBehaviour
     void Start()
     {
         fuelBar = GetComponent<RectTransform>();
-        SetFuelBarSize(UIManager.totalFuel);
+        SetFuelBarSize(GameManager.totalFuel);
     }
 
     public void FuelLoadBar(float fuelSpent)
     {
-        UIManager.totalFuel -= fuelSpent;
+        GameManager.totalFuel -= fuelSpent;
         
-        if (UIManager.totalFuel < 0 )
+        if (GameManager.totalFuel < 0 )
         {
-            UIManager.totalFuel = 0;
+            GameManager.totalFuel = 0;
         }
 
-        if (UIManager.totalFuel > 1)
+        if (GameManager.totalFuel > 1)
         {
-            UIManager.totalFuel = 1;
+            GameManager.totalFuel = 1;
         }
 
-        SetFuelBarSize(UIManager.totalFuel);
+        SetFuelBarSize(GameManager.totalFuel);
     }
 
     public void SetFuelBarSize(float size)

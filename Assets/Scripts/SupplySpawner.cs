@@ -2,79 +2,170 @@ using UnityEngine;
 
 public class SupplySpawner : MonoBehaviour
 {
-    private float armorTimer;
-    private float armorCD = 31f;
+    [Header("Spawn Ranges")]
+    [SerializeField] private RectTransform supply1SpawnLeft;
+    [SerializeField] private RectTransform supply1SpawnRight;
+    private float supply1Left;
+    private float supply1Right;
 
-    private float fuelTimer;
-    private float fuelCD = 83f;
+    private float armorSupplyTimer;
+    private readonly float armorSupplyCD = 31f;
 
-    private bool aircraftDrop = false;
+    private float fuelSupplyTimer;
+    private readonly float fuelSupplyCD = 83f;
 
-    private float artilleryTimer;
-    private float artilleryCD = 57f;
+    private float artillerySupplyTimer;
+    private readonly float artillerySupplyCD = 29f;
 
-    [SerializeField]
-    private GameObject[] supplyPrefs;
+    private float aircraftSupplyTimer;
+    private float aircraftSupplyCD = 29f;
+
+
+    [SerializeField] private GameObject[] supplyPrefs;
+
+    private PlayerController playerController;
+
+    void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+
+        AdjustSpawnRange();
+    }
 
     private void Update()
     {
         if (PlayerController.gameOn)
         {
-            armorTimer += Time.deltaTime;
+            CheckForArmorSupplySpawn();
 
-            if (armorTimer > armorCD)
-            {
-                SpawnArmor();
-            }
+            CheckForFuelSupplySpawn();
 
-            fuelTimer += Time.deltaTime;
+            CheckForArtillerySupplySpawn();
 
-            if (fuelTimer > fuelCD)
-            {
-                SpawnFuel();
-            }
-
-            artilleryTimer += Time.deltaTime;
-
-            if (artilleryTimer > artilleryCD && aircraftDrop == false)
-            {
-                SpawnArtillery();
-                aircraftDrop = true;
-            }
-            else if (artilleryTimer > artilleryCD && aircraftDrop == true)
-            {
-                SpawnAircraft();
-                aircraftDrop = false;
-            }
+            CheckForAircraftSupplySpawn();
         }
-        
+    }
+
+    private void AdjustSpawnRange()
+    {
+        supply1Left = supply1SpawnLeft.position.x;
+        supply1Right = supply1SpawnRight.position.x;
+    }
+
+    private void CheckForArmorSupplySpawn()
+    {
+        armorSupplyTimer += Time.deltaTime;
+
+        if (armorSupplyTimer > armorSupplyCD)
+        {
+            SpawnArmor();
+        }
     }
 
     private void SpawnArmor()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-5.75f, 5.75f), 5.5f, 0);
-        Instantiate(supplyPrefs[0], spawnPos, Quaternion.identity);
-        armorTimer = 0;
+        ItemSpawn(0);
+        armorSupplyTimer = 0;
     }
 
+    private void CheckForFuelSupplySpawn()
+    {
+        fuelSupplyTimer += Time.deltaTime;
+
+        if (fuelSupplyTimer > fuelSupplyCD)
+        {
+            SpawnFuel();
+        }
+    }
     private void SpawnFuel()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-5.75f, 5.75f), 5.5f, 0);
-        Instantiate(supplyPrefs[1], spawnPos, Quaternion.identity);
-        fuelTimer = 0;
+        ItemSpawn(1);
+        fuelSupplyTimer = 0;
     }
 
-    private void SpawnAircraft()
+    private void CheckForArtillerySupplySpawn()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-5.75f, 5.75f), 5.5f, 0);
-        Instantiate(supplyPrefs[2], spawnPos, Quaternion.identity);
-        artilleryTimer = 0;
+        if (GameManager.totalEnemiesDown >= 100 && playerController.playerArtillery == 1)
+        {
+            artillerySupplyTimer += Time.deltaTime;
+
+            if (artillerySupplyTimer > artillerySupplyCD && playerController.playerArtillery == 1)
+                SpawnArtillery();
+        }
+        
+        if (GameManager.totalEnemiesDown >= 250 && playerController.playerArtillery == 2)
+        {
+            artillerySupplyTimer += Time.deltaTime;
+
+            if (artillerySupplyTimer > artillerySupplyCD && playerController.playerArtillery == 2)
+                SpawnArtillery();
+        }
+
+        if (GameManager.totalEnemiesDown >= 350 && playerController.playerArtillery == 3)
+        {
+            artillerySupplyTimer += Time.deltaTime;
+
+            if (artillerySupplyTimer > artillerySupplyCD && playerController.playerArtillery == 3)
+                SpawnArtillery();
+        }
+        
+        if (GameManager.totalEnemiesDown >= 450 && playerController.playerArtillery == 4)
+        {
+            artillerySupplyTimer += Time.deltaTime;
+
+            if (artillerySupplyTimer > artillerySupplyCD && playerController.playerArtillery == 4)
+                SpawnArtillery();
+        }
     }
 
     private void SpawnArtillery()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-5.75f, 5.75f), 5.5f, 0);
-        Instantiate(supplyPrefs[3], spawnPos, Quaternion.identity);
-        artilleryTimer = 0;
+        ItemSpawn(3);
+        artillerySupplyTimer = 0;
+    }
+
+    private void CheckForAircraftSupplySpawn()
+    {
+        if (GameManager.totalEnemiesDown >= 175 && playerController.playerAircraft == 1)
+        {
+            aircraftSupplyTimer += Time.deltaTime;
+
+            if (aircraftSupplyTimer > aircraftSupplyCD && playerController.playerAircraft == 1)
+                SpawnAircraft();
+        }
+        else if (GameManager.totalEnemiesDown >= 300 && playerController.playerAircraft == 2)
+        {
+            aircraftSupplyTimer += Time.deltaTime;
+
+            if (aircraftSupplyTimer > aircraftSupplyCD && playerController.playerAircraft == 2)
+                SpawnAircraft();
+        }
+        else if (GameManager.totalEnemiesDown >= 400 && playerController.playerAircraft == 3)
+        {
+            aircraftSupplyTimer += Time.deltaTime;
+
+            if (aircraftSupplyTimer > aircraftSupplyCD && playerController.playerAircraft == 3)
+                SpawnAircraft();
+        }
+        else if (GameManager.totalEnemiesDown >= 500 && playerController.playerAircraft == 4)
+        {
+            aircraftSupplyTimer += Time.deltaTime;
+
+            if (aircraftSupplyTimer > aircraftSupplyCD && playerController.playerAircraft == 4)
+                SpawnAircraft();
+        }
+    }
+
+    private void SpawnAircraft()
+    {
+        ItemSpawn(2);
+        aircraftSupplyTimer = 0;
+    }
+
+    private void ItemSpawn(int supplyPrefNumber)
+    {
+        float spawnPositionX = Random.Range(supply1Left, supply1Right);
+        Vector3 spawnPos = new(spawnPositionX, 5.5f, 0);
+        Instantiate(supplyPrefs[supplyPrefNumber], spawnPos, Quaternion.identity);
     }
 }

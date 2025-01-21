@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    void Update()
+    private void Update()
     {
-        if (transform.position.y > 25)
+        if (transform.position.y > 10)
         {
             Destroy(gameObject);
         }
     }
-
 }

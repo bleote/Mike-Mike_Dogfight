@@ -37,6 +37,12 @@ TagManager:
   - AlertText
   - PauseText
   - Gogogo
+  - BulletSound
+  - EngineSound
+  - MissedShotArea
+  - MouseClick
+  - UserConsent
+  - SurvivedWaveSound
   layers:
   - Default
   - TransparentFX
@@ -72,13 +78,13 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 77994783
+    uniqueID: 930586543
     locked: 0
   - name: Midground
-    uniqueID: 3546574155
+    uniqueID: 1462756165
     locked: 0
   - name: Foreground
-    uniqueID: 2354434483
+    uniqueID: 1077375111
     locked: 0
   - name: Default
     uniqueID: 0

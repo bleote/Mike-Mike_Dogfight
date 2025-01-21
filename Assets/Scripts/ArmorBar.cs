@@ -10,28 +10,28 @@ public class ArmorBar : MonoBehaviour
     {
         armorBar = GetComponent<RectTransform>();
         barImage = GetComponent<Image>();
-        SetArmorBarSize(UIManager.totalArmor);
+        SetArmorBarSize(GameManager.totalArmor);
     }
 
     public void DamageBar(float damage)
     {
-        UIManager.totalArmor -= damage;
+        GameManager.totalArmor -= damage;
 
-        if (UIManager.totalArmor < 0)
+        if (GameManager.totalArmor < 0)
         {
-            UIManager.totalArmor = 0;
+            GameManager.totalArmor = 0;
         }
 
-        if (UIManager.totalArmor > 1)
+        if (GameManager.totalArmor > 1)
         {
-            UIManager.totalArmor = 1;
+            GameManager.totalArmor = 1;
         }
 
-        if (UIManager.totalArmor <= 0.7f && UIManager.totalArmor > 0.3f)
+        if (GameManager.totalArmor <= 0.7f && GameManager.totalArmor > 0.3f)
         {
             barImage.color = Color.yellow;
         }
-        else if (UIManager.totalArmor <= 0.3f)
+        else if (GameManager.totalArmor <= 0.3f)
         {
             barImage.color = Color.red;
         }
@@ -40,7 +40,7 @@ public class ArmorBar : MonoBehaviour
             barImage.color = Color.green;
         }
 
-        SetArmorBarSize(UIManager.totalArmor);
+        SetArmorBarSize(GameManager.totalArmor);
     }
 
     public void SetArmorBarSize(float size)
